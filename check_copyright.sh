@@ -22,7 +22,7 @@ EOF
 
 check() {
   if head -10 "$1" | grep -iq copyright; then
-    if ! grep -eiq "copyright.*$current_year" "$1"; then
+    if ! grep -e "copyright.*$current_year" -iq "$1"; then
       invalid_files="$invalid_files $1"
     fi
   fi
